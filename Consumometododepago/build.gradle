@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
+}
+
+group 'co.wompi'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.2.34'
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-core:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit5:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$serenityVersion"
+    testImplementation "io.rest-assured:rest-assured:5.4.0"
+    implementation "org.junit.jupiter:junit-jupiter:5.10.0"
+    testImplementation "io.cucumber:cucumber-java:7.14.0"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:7.14.0"
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.0'
+}
+
+test {
+    useJUnitPlatform()
+}
